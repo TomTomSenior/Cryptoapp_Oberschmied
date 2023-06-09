@@ -50,6 +50,11 @@ Leitfragen :
     aber ich benötige noch länger als 
     gewünscht um zu verstehen was machbar ist.
 
-
 3. Längere Code Abschnitte lesen und
     verstehen bzw Interpretieren.
+
+
+    Eintrag 3 am 09.06.2023
+    Video H bearbeitet.
+
+    Keine neuen Fragen aufgetaucht.
