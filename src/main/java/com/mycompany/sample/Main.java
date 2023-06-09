@@ -8,10 +8,7 @@ import com.gluonhq.attach.display.DisplayService;
 import com.gluonhq.attach.util.Platform;
 import com.gluonhq.charm.glisten.application.AppManager;
 import com.gluonhq.charm.glisten.visual.Swatch;
-import com.mycompany.sample.domain.Bankaccount;
-import com.mycompany.sample.domain.CryptoCurrency;
-import com.mycompany.sample.domain.Transaction;
-import com.mycompany.sample.domain.Wallet;
+import com.mycompany.sample.domain.*;
 import javafx.application.Application;
 import javafx.geometry.Dimension2D;
 import javafx.scene.Scene;
@@ -105,6 +102,13 @@ public class Main extends Application {
 
         System.out.println(ba);
         System.out.println(wallet);
+
+        WalletList walletList = new WalletList();
+        walletList.addWallet(wallet);
+
+        System.out.println(walletList);
+
+
 
 
         launch(args);

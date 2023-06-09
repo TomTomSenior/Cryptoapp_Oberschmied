@@ -5,14 +5,21 @@ Videos wurden bis Video F bearbeitet,
 Leitfragen :
 
 1. Was habe ich neu gelernt?
+
     copyof war ein sehr interessantes Beispiel.
-2.1 Exception deklarierung war äusserst  
+
+2.  Was muss ich mir nochmals genauer anschauen,
+    weil ich es noch nicht verstanden habe?
+
+2.1 Exception deklarierung war äusserst
     interessant und leicht verständlich.
 2.2 Was muss ich mir noch genauer Anschauen?
     try catch und methoden schreiben sind 
     mir schwergefallen.
+
 3. Was hab ich jetzt verstanden, was ich
     vorher noch nicht konnte?
+    
     Es fällt mir leichter mit der Geschwindigkeit
     mitzuhalten und mir wurde bewusst wie
     "einfach" man Lösungsansätze finden kann.
@@ -34,7 +41,15 @@ Leitfragen :
     umgeschrieben werden damit keine
     Kollision zwischend den Methoden
     enstehen.
-2. Die Verwendung/Verkettung der verschiedenen 
-    Exceptions war gut verständlich.
+
+2.  Was muss ich mir nochmals genauer anschauen,
+    weil ich es noch nicht verstanden habe?
+
+    Die Verwendung/Verkettung der verschiedenen 
+    Exceptions war gut verständlich, 
+    aber ich benötige noch länger als 
+    gewünscht um zu verstehen was machbar ist.
+
+
 3. Längere Code Abschnitte lesen und
     verstehen bzw Interpretieren.
