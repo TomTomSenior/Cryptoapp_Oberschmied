@@ -58,3 +58,17 @@ Leitfragen :
     Video H bearbeitet.
 
     Keine neuen Fragen aufgetaucht.
+
+
+    Eintrag 4 am 09.06.2023
+
+    Video I bearbeitet.
+
+    1. Was habe ich neu gelernt?
+        API und HTTPS einbindung
+
+    2. Was muss ich mir nochmal
+    genauer anschauen?
+    API und HTTPS einbindung 
+
+    

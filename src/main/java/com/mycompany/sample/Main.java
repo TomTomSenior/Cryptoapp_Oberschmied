@@ -1,9 +1,7 @@
 package com.mycompany.sample;
 
-import Exceptions.InsufficientAmountException;
-import Exceptions.InsufficientBalanceException;
-import Exceptions.InvalidAmountException;
-import Exceptions.InvalidFeeException;
+import Exceptions.*;
+import Infrastruktur.CurrentCurrencyPrices;
 import com.gluonhq.attach.display.DisplayService;
 import com.gluonhq.attach.util.Platform;
 import com.gluonhq.charm.glisten.application.AppManager;
@@ -108,7 +106,14 @@ public class Main extends Application {
 
         System.out.println(walletList);
 
+        CurrentPriceForCurrency currentPrices = new CurrentCurrencyPrices();
 
+
+        try {
+            BigDecimal result =currentPrices.getCurrentprice(CryptoCurrency.ETH);
+        } catch (GetCurrentPriceException e) {
+          e.printStackTrace();
+        }
 
 
         launch(args);
