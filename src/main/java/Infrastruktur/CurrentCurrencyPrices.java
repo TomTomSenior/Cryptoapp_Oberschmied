@@ -35,8 +35,10 @@ public class CurrentCurrencyPrices implements CurrentPriceForCurrency {
         } catch (InterruptedException interruptedException) {
             interruptedException.printStackTrace();
             throw new GetCurrentPriceException("Interrupted: " +  interruptedException.getMessage());
+        } catch (NumberFormatException numberFormatException) {
+            throw new GetCurrentPriceException("Conversion of Value not possible:"
+                    + numberFormatException.getMessage());
+
         }
-
-
     }
 }
