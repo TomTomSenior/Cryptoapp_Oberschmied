@@ -1,4 +1,5 @@
 package com.mycompany.sample;
+
 import Exceptions.*;
 import Infrastruktur.CurrentCurrencyPrices;
 import Infrastruktur.FileDataStore;
@@ -6,9 +7,12 @@ import com.mycompany.sample.domain.*;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.ResourceBundle;
 
@@ -18,35 +22,47 @@ import javafx.fxml.FXMLLoader;
 public class WalletApp extends Application {
 
 
-
     // UI Parts
     private static Stage mainStage;
 
-    public static void switchScene(String fxmlFile, String resourceBundle){
+    public static void switchScene(String fxmlFile, String resourceBundle) {
         try {
-            Parent root = FXMLLoader.load(WalletApp.class.getResource(fxmlFile),ResourceBundle.getBundle(resourceBundle));
+            Parent root = FXMLLoader.load(WalletApp.class.getResource(fxmlFile), ResourceBundle.getBundle(resourceBundle));
             Scene scene = new Scene(root);
             mainStage.setScene(scene);
             mainStage.show();
-        } catch (IOException ioException) {
+        } catch (Exception ioException) {
+            WalletApp.showErrorDialog("Could not load new scene!");
             ioException.printStackTrace();
         }
+    }
+
+    public static void showErrorDialog(String message) {
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText("An exception occurred: " + message);
+        alert.showAndWait();
+
     }
 
 
     @Override
     public void start(Stage stage) throws IOException {
+
+        mainStage = stage;
+        WalletApp.switchScene("main.fxml", "com.mycompany.sample.main");
+
+
+
+        /*
         AnchorPane root = FXMLLoader.load(WalletApp.class.getResource("main.fxml"),
         ResourceBundle.getBundle("com.mycompany.sample.main"));
+
         Scene scene =new Scene(root,640,480);
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
 
     }
-
-
-
-
 
 
     public static void main(String[] args) throws InvalidAmountException, InsufficientAmountException {
@@ -110,9 +126,9 @@ public class WalletApp extends Application {
 
 
         try {
-            BigDecimal result =currentPrices.getCurrentprice(CryptoCurrency.ETH);
+            BigDecimal result = currentPrices.getCurrentprice(CryptoCurrency.ETH);
         } catch (GetCurrentPriceException e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
 
         DataStore dataStore = new FileDataStore();
