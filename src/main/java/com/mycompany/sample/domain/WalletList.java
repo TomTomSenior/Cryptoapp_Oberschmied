@@ -28,7 +28,10 @@ public class WalletList implements Serializable {
     public List<Wallet> getWalletsAsObservableList()
     {
         return wallets.values().stream().collect(Collectors.toList());
+
     }
+
+
 
     @Override
     public String toString() {

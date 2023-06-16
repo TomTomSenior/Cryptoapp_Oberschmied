@@ -6,11 +6,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Bankaccount implements Serializable {
+public class BankAccount implements Serializable {
     private BigDecimal balance;
 
 
-    public Bankaccount() {
+    public BankAccount() {
         this.balance = new BigDecimal("0").setScale(2, RoundingMode.HALF_UP);
 
     }

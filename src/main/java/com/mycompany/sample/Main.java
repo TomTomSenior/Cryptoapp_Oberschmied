@@ -2,6 +2,7 @@ package com.mycompany.sample;
 
 import Exceptions.*;
 import Infrastruktur.CurrentCurrencyPrices;
+import Infrastruktur.FileDataStore;
 import com.gluonhq.attach.display.DisplayService;
 import com.gluonhq.attach.util.Platform;
 import com.gluonhq.charm.glisten.application.AppManager;
@@ -52,7 +53,7 @@ public class Main extends Application {
     public static void main(String[] args) throws InvalidAmountException, InsufficientAmountException {
 
         System.out.println("Hallo Welt !");
-        Bankaccount ba = new Bankaccount();
+        BankAccount ba = new BankAccount();
         ba.deposit(new BigDecimal(10000));
 
         System.out.println(ba);
@@ -115,6 +116,31 @@ public class Main extends Application {
           e.printStackTrace();
         }
 
+        DataStore dataStore = new FileDataStore();
+        try {
+            dataStore.saveBankAccount(ba);
+        } catch (SaveDataException e) {
+            e.printStackTrace(); // alternativ System.out.println(e.getmessage());
+        }
+
+        try {
+            BankAccount bankAccount2 = dataStore.retrieveBankAccount();
+            System.out.println(bankAccount2);
+        } catch (RetrieveDataexception e) {
+            e.printStackTrace();// alternativ System.out.println(e.getmessage());
+        }
+
+        try {
+            dataStore.saveWalletList(walletList);
+        } catch (SaveDataException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            WalletList walletList2 = dataStore.retrieveWalletList();
+        } catch (RetrieveDataexception e) {
+            e.printStackTrace();
+        }
 
         launch(args);
     }

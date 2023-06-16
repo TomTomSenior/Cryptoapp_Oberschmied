@@ -71,4 +71,12 @@ Leitfragen :
     genauer anschauen?
     API und HTTPS einbindung 
 
-    
+
+    Eintrag am 16.06.2023
+    Video I +J bearbeitet
+    Live Daten verarbeitung war sehr 
+    Interessant.
+
+    Bankdatenverarbeitung hat sich 
+    weitaus einfacher gestaltet als
+    befürchtet.

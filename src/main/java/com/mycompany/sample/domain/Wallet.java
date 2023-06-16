@@ -30,7 +30,7 @@ public class Wallet implements Serializable {
         this.setNewFee(feeInPercent);
     }
 
-    public void buy(BigDecimal amount, BigDecimal currentPrice, Bankaccount bankAccount) throws InvalidAmountException, InsufficientBalanceException {
+    public void buy(BigDecimal amount, BigDecimal currentPrice, BankAccount bankAccount) throws InvalidAmountException, InsufficientBalanceException {
         if (amount.compareTo(new BigDecimal("0")) <= 0) {
             throw new InvalidAmountException();
         }
@@ -45,7 +45,7 @@ public class Wallet implements Serializable {
         this.amount = this.amount.add(transaction.getAmount());
     }
 
-    public void sell(BigDecimal amount, BigDecimal currentPrice, Bankaccount bankAccount) throws InsufficientAmountException, InvalidAmountException {
+    public void sell(BigDecimal amount, BigDecimal currentPrice, BankAccount bankAccount) throws InsufficientAmountException, InvalidAmountException {
         if (amount.compareTo(new BigDecimal("0")) <= 0) {
             throw new InvalidAmountException();
         }
