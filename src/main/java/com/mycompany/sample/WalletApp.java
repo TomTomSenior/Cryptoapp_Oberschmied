@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
@@ -81,17 +80,6 @@ public class WalletApp extends Application {
 
         mainStage = stage;
         WalletApp.switchScene("main.fxml", "com.mycompany.sample.main");
-
-
-
-        /*
-        AnchorPane root = FXMLLoader.load(WalletApp.class.getResource("main.fxml"),
-        ResourceBundle.getBundle("com.mycompany.sample.main"));
-
-        Scene scene =new Scene(root,640,480);
-        stage.setScene(scene);
-        stage.show();*/
-
         BankAccount bankAccount = new BankAccount();
         WalletList walletList = new WalletList();
 
@@ -133,103 +121,9 @@ public class WalletApp extends Application {
             WalletApp.showErrorDialog("Could not store bankAccount and / or wallet details !");
             e.printStackTrace();
         }
-
     }
 
-
-
-    public static void main(String[] args) throws InvalidAmountException, InsufficientAmountException {
-
-        System.out.println("Hallo Welt !");
-        BankAccount ba = new BankAccount();
-        ba.deposit(new BigDecimal(10000));
-
-        System.out.println(ba);
-
-        CryptoCurrency crypto = CryptoCurrency.BTC;
-        System.out.println(crypto.getCurrencyName());
-        System.out.println(crypto.getCode());
-        System.out.println(CryptoCurrency.valueOfCode("BTC").getCurrencyName());
-
-        Transaction transaction = new Transaction(CryptoCurrency.ETH,
-                new BigDecimal("1.23"),
-                new BigDecimal("1567.8")
-        );
-
-        System.out.println(transaction);
-
-        Wallet wallet = null;
-        try {
-            wallet = new Wallet("My BTC Wallet", CryptoCurrency.BTC, new BigDecimal("1"));
-        } catch (InvalidFeeException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-
-        }
-
-
-        try {
-            wallet.buy(new BigDecimal("10"), new BigDecimal("5"), ba);
-        } catch (InvalidAmountException e) {
-            e.printStackTrace();
-        } catch (InsufficientBalanceException insufficientBalanceException) {
-            insufficientBalanceException.printStackTrace();
-        }
-
-        System.out.println(ba);
-        System.out.println(wallet);
-
-        try {
-            wallet.sell(new BigDecimal(10), new BigDecimal(5), ba);
-        } catch (InsufficientAmountException e) {
-            e.printStackTrace();
-        } catch (InvalidAmountException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(ba);
-        System.out.println(wallet);
-
-        WalletList walletList = new WalletList();
-        walletList.addWallet(wallet);
-
-        System.out.println(walletList);
-
-        CurrentPriceForCurrency currentPrices = new CurrentCurrencyPrices();
-
-
-        try {
-            BigDecimal result = currentPrices.getCurrentprice(CryptoCurrency.ETH);
-        } catch (GetCurrentPriceException e) {
-            e.printStackTrace();
-        }
-
-        DataStore dataStore = new FileDataStore();
-        try {
-            dataStore.saveBankAccount(ba);
-        } catch (SaveDataException e) {
-            e.printStackTrace(); // alternativ System.out.println(e.getmessage());
-        }
-
-        try {
-            BankAccount bankAccount2 = dataStore.retrieveBankAccount();
-            System.out.println(bankAccount2);
-        } catch (RetrieveDataexception e) {
-            e.printStackTrace();// alternativ System.out.println(e.getmessage());
-        }
-
-        try {
-            dataStore.saveWalletList(walletList);
-        } catch (SaveDataException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            WalletList walletList2 = dataStore.retrieveWalletList();
-        } catch (RetrieveDataexception e) {
-            e.printStackTrace();
-        }
-
+    public static void main(String[] args) {
         launch(args);
     }
 

@@ -98,5 +98,11 @@ Video N und O erledigt
 Video N leicht verstanden nur
 noch etwas Detaillernen notwendig
 
-Video O Fast garnicht verstanden 
+Video O fast garnicht verstanden 
 noch einige Fragen offen.
+
+Videos P, Q, R bearbeitet
+
+Problem mit main.Css konnte ich leider 
+noch nicht beheben bzw CSS funktioniert garnicht.
+
