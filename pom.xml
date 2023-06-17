@@ -71,7 +71,7 @@
                         <list>com.mycompany.sample.main</list>
                     </bundlesList>
                     <reflectionList>
-                        <list>com.mycompany.sample.MainController</list>
+                        <list>UI.MainController</list>
                     </reflectionList>
                 </configuration>
             </plugin>

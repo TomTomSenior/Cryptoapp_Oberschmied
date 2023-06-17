@@ -1,4 +1,4 @@
-package com.mycompany.sample;
+package UI;
 
 import java.text.MessageFormat;
 import java.util.Random;

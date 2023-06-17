@@ -80,3 +80,23 @@ Leitfragen :
     Bankdatenverarbeitung hat sich 
     weitaus einfacher gestaltet als
     befürchtet.
+
+
+Eintrag am 17.06.2023
+Videos K,L,M erledigt
+
+Video L hat mir grössere Probleme
+bereitet da ich dort ein zwei verschiebungen 
+hatte und somit länger mit reparatur besschäftigt war
+
+Video M 
+sehr leicht verständlich und 
+ohne probleme bearbeitbar.
+
+Video N und O erledigt
+
+Video N leicht verstanden nur
+noch etwas Detaillernen notwendig
+
+Video O Fast garnicht verstanden 
+noch einige Fragen offen.
