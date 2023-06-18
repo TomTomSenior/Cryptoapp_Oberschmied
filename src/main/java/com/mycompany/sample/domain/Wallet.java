@@ -96,7 +96,7 @@ public class Wallet implements Serializable {
         return feeInPercent;
     }
 
-    public String getCurrenyName() {
+    public String getCurrencyName() {
         return this.cryptoCurrency.getCurrencyName();
     }
 

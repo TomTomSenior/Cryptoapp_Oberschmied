@@ -106,3 +106,13 @@ Videos P, Q, R bearbeitet
 Problem mit main.Css konnte ich leider 
 noch nicht beheben bzw CSS funktioniert garnicht.
 
+
+Video S Erledigt
+
+Probleme mit NullpointerException 
+im Ui.MainController.intialize  
+Zeile 34 could be Null??
+
+Eintrag 17.06.2023
+
+Videos T und U erledigt.

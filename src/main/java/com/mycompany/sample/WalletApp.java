@@ -1,22 +1,22 @@
 package com.mycompany.sample;
 
-import Exceptions.*;
+import Exceptions.RetrieveDataexception;
+import Exceptions.SaveDataException;
 import Infrastruktur.CurrentCurrencyPrices;
 import Infrastruktur.FileDataStore;
 import UI.GlobalContext;
-import com.mycompany.sample.domain.*;
+import com.mycompany.sample.domain.BankAccount;
+import com.mycompany.sample.domain.DataStore;
+import com.mycompany.sample.domain.WalletList;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.math.BigDecimal;
-import java.util.ResourceBundle;
 
-import javafx.fxml.FXMLLoader;
+import java.io.IOException;
+import java.util.ResourceBundle;
 
 
 public class WalletApp extends Application {
