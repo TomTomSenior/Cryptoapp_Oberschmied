@@ -22,12 +22,12 @@ import java.util.ResourceBundle;
 public class WalletApp extends Application {
 
 
-    // UI Parts
-    private static Stage mainStage;
     public static final String GLOBAL_WALLET_LIST = "walletlist";
     public static final String GLOBAL_BANK_ACCOUNT = "bankaccount";
     public static final String GLOBAL_CURRENT_CURRENCY_PRICES = "currencyprices";
-    public static String GLOBAL_SELECTED_WALLET= "selectedWallet";
+    public static String GLOBAL_SELECTED_WALLET = "selectedWallet";
+    // UI Parts
+    private static Stage mainStage;
 
     public static void switchScene(String fxmlFile, String resourceBundle) {
         try {
@@ -50,28 +50,32 @@ public class WalletApp extends Application {
     }
 
 
-            //File-Handling -Parts
+    //File-Handling -Parts
 
-    private BankAccount loadBankAccountFromFile()throws RetrieveDataexception{
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    private BankAccount loadBankAccountFromFile() throws RetrieveDataexception {
         DataStore dataStore = new FileDataStore();
         BankAccount bankAccount = dataStore.retrieveBankAccount();
         System.out.println("Bankaccount loaded !");
         return bankAccount;
     }
 
-    private WalletList loadWalletListFromFile()throws RetrieveDataexception{
+    private WalletList loadWalletListFromFile() throws RetrieveDataexception {
         DataStore dataStore = new FileDataStore();
         WalletList walletList = dataStore.retrieveWalletList();
         System.out.println("Walletlist loaded !");
         return walletList;
     }
 
-    private void storeBankAccountToFile(BankAccount bankAccount) throws SaveDataException{
-    DataStore dataStore = new FileDataStore();
-    dataStore.saveBankAccount(bankAccount);
+    private void storeBankAccountToFile(BankAccount bankAccount) throws SaveDataException {
+        DataStore dataStore = new FileDataStore();
+        dataStore.saveBankAccount(bankAccount);
     }
 
-    private void storeWalletListToFile(WalletList walletList)throws SaveDataException{
+    private void storeWalletListToFile(WalletList walletList) throws SaveDataException {
         DataStore dataStore = new FileDataStore();
         dataStore.saveWalletList(walletList);
     }
@@ -98,17 +102,19 @@ public class WalletApp extends Application {
             e.printStackTrace();
         }
 
-       // Fill GlobalContext
-        GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_WALLET_LIST,walletList);
-        GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_BANK_ACCOUNT,bankAccount);
-        GlobalContext.getGlobalContext().putStateFor(GLOBAL_CURRENT_CURRENCY_PRICES,new CurrentCurrencyPrices());
+        // Fill GlobalContext
+        GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_WALLET_LIST, walletList);
+        GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_BANK_ACCOUNT, bankAccount);
+        GlobalContext.getGlobalContext().putStateFor(GLOBAL_CURRENT_CURRENCY_PRICES, new CurrentCurrencyPrices());
+
+        mainStage.setOnCloseRequest(event -> event.consume());
+
 
         WalletApp.switchScene("main.fxml", "com.mycompany.sample.main");
     }
 
     @Override
-    public void stop()
-    {
+    public void stop() {
         WalletList walletList = (WalletList) GlobalContext.getGlobalContext().getStateFor(WalletApp.GLOBAL_WALLET_LIST);
         BankAccount bankAccount = (BankAccount) GlobalContext.getGlobalContext().getStateFor(WalletApp.GLOBAL_BANK_ACCOUNT);
 
@@ -122,10 +128,6 @@ public class WalletApp extends Application {
             WalletApp.showErrorDialog("Could not store bankAccount and / or wallet details !");
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
 }

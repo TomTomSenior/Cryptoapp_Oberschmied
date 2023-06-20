@@ -5,6 +5,8 @@ import Exceptions.InvalidFeeException;
 import com.mycompany.sample.WalletApp;
 import com.mycompany.sample.domain.CryptoCurrency;
 import com.mycompany.sample.domain.Wallet;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,7 +33,7 @@ public class MainController extends BaseControllerState {
         this.cmbWalletCurrency.getItems().addAll(CryptoCurrency.getCodes());
 
         this.lblBankaccountBalance.textProperty().setValue(getBankAccount().getBalance().toString());
-        System.out.println("Hllo:" +  getBankAccount());
+        System.out.println("Hllo:" + getBankAccount());
 
         TableColumn<Wallet, String> symbol = new TableColumn<>("SYMBOL");
         symbol.setCellValueFactory(new PropertyValueFactory<>("cryptoCurrency"));
@@ -53,6 +55,10 @@ public class MainController extends BaseControllerState {
 
         tableView.getItems().setAll(getWalletList().getWalletsAsObservableList());
 
+       // this.btnClose.setOnAction(ActionEvent event ) ->
+        //{
+            Platform.exit();
+       // });
     }
 
     public void deposit() {

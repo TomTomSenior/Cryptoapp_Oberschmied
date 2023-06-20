@@ -5,11 +5,10 @@ Methode getWalletAsObservableList
 
 könnte der Name irreführend sein?
 
-
-Video L 
+Video L
 
 FXML fehleranfällig?
 
-Video M 
+Video M
 
 Nullpointer exception umgehung wie noch??

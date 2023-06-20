@@ -2,8 +2,7 @@ package Exceptions;
 
 public class SaveDataException extends Exception {
 
-    public SaveDataException(String message)
-    {
+    public SaveDataException(String message) {
         super(message);
     }
 

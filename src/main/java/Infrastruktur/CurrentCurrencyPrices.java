@@ -17,15 +17,15 @@ public class CurrentCurrencyPrices implements CurrentPriceForCurrency {
     public BigDecimal getCurrentPrice(CryptoCurrency cryptoCurrency) throws GetCurrentPriceException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(
-                URI.create("https://api.coingecko.com/api/v3/simple/price?ids="
-                +cryptoCurrency.currencyName+"&vs_currencies=Eur"))
-                .header("accept","application/json")
-        .build();
+                        URI.create("https://api.coingecko.com/api/v3/simple/price?ids="
+                                + cryptoCurrency.currencyName + "&vs_currencies=Eur"))
+                .header("accept", "application/json")
+                .build();
 
         try {
-            HttpResponse<String> result = client.send(request,HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> result = client.send(request, HttpResponse.BodyHandlers.ofString());
             String[] split = result.body().split(":");
-            String result2 = split[2].substring(0,split[2].length()-2);
+            String result2 = split[2].substring(0, split[2].length() - 2);
             return new BigDecimal(result2);
 
         } catch (IOException ioException) {

@@ -2,6 +2,6 @@ package Exceptions;
 
 public class InsufficientAmountException extends Exception {
     public InsufficientAmountException() {
-        super("Insufficient Amount of Crypto in Wallet" );
+        super("Insufficient Amount of Crypto in Wallet");
     }
 }

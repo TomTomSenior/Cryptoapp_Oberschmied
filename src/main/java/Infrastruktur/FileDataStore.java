@@ -12,7 +12,7 @@ public class FileDataStore implements DataStore {
 
     @Override
     public void saveBankAccount(BankAccount bankAccount) throws SaveDataException {
-        if (bankAccount !=null) {
+        if (bankAccount != null) {
 
             ObjectOutputStream objectOutputStream = null;
             try {
@@ -30,7 +30,7 @@ public class FileDataStore implements DataStore {
 
     @Override
     public void saveWalletList(WalletList walletList) throws SaveDataException {
-        if (walletList !=null) {
+        if (walletList != null) {
             ObjectOutputStream objectOutputStream = null;
             try {
                 objectOutputStream = new ObjectOutputStream(new FileOutputStream("walletList.bin"));
@@ -66,13 +66,13 @@ public class FileDataStore implements DataStore {
 
         try {
             objectInputStream = new ObjectInputStream(new FileInputStream("walletList.bin"));
-            WalletList walletList =(WalletList) objectInputStream.readObject();
+            WalletList walletList = (WalletList) objectInputStream.readObject();
             objectInputStream.close();
             return walletList;
-        } catch (IOException |ClassNotFoundException exception) {
+        } catch (IOException | ClassNotFoundException exception) {
             exception.printStackTrace();
             throw new RetrieveDataexception("Error on retrieving walletList Data from File"
-                   + exception.getMessage());
+                    + exception.getMessage());
         }
     }
 }

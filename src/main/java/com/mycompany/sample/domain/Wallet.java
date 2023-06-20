@@ -17,8 +17,8 @@ public class Wallet implements Serializable {
     private final UUID id;
     private final String name;
     private final CryptoCurrency cryptoCurrency;
-    private BigDecimal amount;
     private final List<Transaction> transactions;
+    private BigDecimal amount;
     private BigDecimal feeInPercent;
 
     public Wallet(String name, CryptoCurrency cryptoCurrency, BigDecimal feeInPercent) throws InvalidFeeException {
@@ -55,10 +55,10 @@ public class Wallet implements Serializable {
         Transaction transaction = new Transaction(this.cryptoCurrency, amount.negate(),
                 currentPrice.setScale(6, RoundingMode.HALF_UP));
         bankAccount.deposit(
-                 transaction.getTotal().negate()
-                .multiply(new BigDecimal("100").subtract(this.feeInPercent)
-                .divide(new BigDecimal("100")))
-                .setScale(6, RoundingMode.HALF_UP));
+                transaction.getTotal().negate()
+                        .multiply(new BigDecimal("100").subtract(this.feeInPercent)
+                                .divide(new BigDecimal("100")))
+                        .setScale(6, RoundingMode.HALF_UP));
         this.transactions.add(transaction);
         this.amount = reducedAmount;
     }

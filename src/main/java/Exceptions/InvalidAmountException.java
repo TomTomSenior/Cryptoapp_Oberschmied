@@ -3,7 +3,7 @@ package Exceptions;
 public class InvalidAmountException extends Exception {
 
 
-    public  InvalidAmountException(){
+    public InvalidAmountException() {
         super("Invalid Amount < 0! ");
     }
 }

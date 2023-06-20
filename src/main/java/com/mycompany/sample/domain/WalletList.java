@@ -1,4 +1,5 @@
 package com.mycompany.sample.domain;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -13,24 +14,20 @@ public class WalletList implements Serializable {
     }
 
 
-  public void addWallet(Wallet wallet)
-  {
-        if (wallet !=null && !this.wallets.containsKey(wallet.getCryptoCurrency()))
-        {
-            this.wallets.put(wallet.getCryptoCurrency(),wallet);
+    public void addWallet(Wallet wallet) {
+        if (wallet != null && !this.wallets.containsKey(wallet.getCryptoCurrency())) {
+            this.wallets.put(wallet.getCryptoCurrency(), wallet);
         }
-  }
-    public Wallet getWallet(CryptoCurrency cryptoCurrency)
-    {
+    }
+
+    public Wallet getWallet(CryptoCurrency cryptoCurrency) {
         return this.wallets.get(cryptoCurrency);
     }
 
-    public List<Wallet> getWalletsAsObservableList()
-    {
+    public List<Wallet> getWalletsAsObservableList() {
         return wallets.values().stream().collect(Collectors.toList());
 
     }
-
 
 
     @Override

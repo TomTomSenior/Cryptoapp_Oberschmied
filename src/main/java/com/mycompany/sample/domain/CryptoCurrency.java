@@ -5,14 +5,14 @@ import java.util.*;
 
 /**
  * Crypto Currences
- *
+ * <p>
  * Usage e.g.:
- *      CryptoCurrency.USD.getCurrencyName()
- *      CryptoCurrency.valueOfCode("USD").getCurrencyName()
- *      CryptoCurrency.USD.getCode()
- *
+ * CryptoCurrency.USD.getCurrencyName()
+ * CryptoCurrency.valueOfCode("USD").getCurrencyName()
+ * CryptoCurrency.USD.getCode()
+ * <p>
  * Important note:
- *      CryptoCurrency.valueOf("$PAC") returns IllegalArgumentException.
+ * CryptoCurrency.valueOf("$PAC") returns IllegalArgumentException.
  */
 public enum CryptoCurrency implements Serializable {
 
@@ -77,8 +77,7 @@ public enum CryptoCurrency implements Serializable {
     NULS("NULS"),
     MUE("MonetaryUnit"),
     XPM("Primecoin"),
-    ZPAE("ZelaaPayAE")
-    ;
+    ZPAE("ZelaaPayAE");
 
     private static Map<String, CryptoCurrency> cryptoCurrenciesUpperCase = new HashMap<>();
     private static Map<String, CryptoCurrency> cryptoCurrencies = new LinkedHashMap<>();
@@ -104,14 +103,6 @@ public enum CryptoCurrency implements Serializable {
         this.code = (code == null) ? name() : code;
     }
 
-    public String getCurrencyName() {
-        return currencyName;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
     /**
      * Use this method instead of Enum.valueOf.
      */
@@ -125,5 +116,13 @@ public enum CryptoCurrency implements Serializable {
 
     public static Set<String> getCodes() {
         return cryptoCurrencies.keySet();
+    }
+
+    public String getCurrencyName() {
+        return currencyName;
+    }
+
+    public String getCode() {
+        return code;
     }
 }
