@@ -116,3 +116,11 @@ Zeile 34 could be Null??
 Eintrag 17.06.2023
 
 Videos T und U erledigt.
+
+Videos V und W erledigt.
+
+Video X Erledigt.
+
+leichte Überforderung mit der mächtigkeit 
+von GlobalContext sonst aber im 
+Großen und Ganzen gut verstanden.

@@ -59,7 +59,7 @@ public class WalletApp extends Application {
         return bankAccount;
     }
 
-    private  WalletList loadWalletListFromFile()throws RetrieveDataexception{
+    private WalletList loadWalletListFromFile()throws RetrieveDataexception{
         DataStore dataStore = new FileDataStore();
         WalletList walletList = dataStore.retrieveWalletList();
         System.out.println("Walletlist loaded !");

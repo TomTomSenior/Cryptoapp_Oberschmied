@@ -14,7 +14,7 @@ import java.net.http.HttpResponse;
 public class CurrentCurrencyPrices implements CurrentPriceForCurrency {
 
     @Override
-    public BigDecimal getCurrentprice(CryptoCurrency cryptoCurrency) throws GetCurrentPriceException {
+    public BigDecimal getCurrentPrice(CryptoCurrency cryptoCurrency) throws GetCurrentPriceException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(
                 URI.create("https://api.coingecko.com/api/v3/simple/price?ids="
