@@ -31,6 +31,7 @@ public class MainController extends BaseControllerState {
         this.cmbWalletCurrency.getItems().addAll(CryptoCurrency.getCodes());
 
         this.lblBankaccountBalance.textProperty().setValue(getBankAccount().getBalance().toString());
+        System.out.println("Hllo:" +  getBankAccount());
 
         TableColumn<Wallet, String> symbol = new TableColumn<>("SYMBOL");
         symbol.setCellValueFactory(new PropertyValueFactory<>("cryptoCurrency"));

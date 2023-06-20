@@ -13,7 +13,6 @@ public class BaseControllerState {
     {
         bankAccount =(BankAccount) GlobalContext.getGlobalContext().getStateFor(WalletApp.GLOBAL_BANK_ACCOUNT);
         walletList =(WalletList) GlobalContext.getGlobalContext().getStateFor(WalletApp.GLOBAL_WALLET_LIST);
-
     }
 
     public WalletList getWalletList() {
