@@ -24,9 +24,10 @@ public class WalletApp extends Application {
 
     // UI Parts
     private static Stage mainStage;
-    public static final String GLOBAL_WALLET_List = "walletlist";
+    public static final String GLOBAL_WALLET_LIST = "walletlist";
     public static final String GLOBAL_BANK_ACCOUNT = "bankaccount";
     public static final String GLOBAL_CURRENT_CURRENCY_PRICES = "currencyprices";
+    public static String GLOBAL_SELECTED_WALLET= "selectedWallet";
 
     public static void switchScene(String fxmlFile, String resourceBundle) {
         try {
@@ -98,7 +99,7 @@ public class WalletApp extends Application {
         }
 
        // Fill GlobalContext
-        GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_WALLET_List,walletList);
+        GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_WALLET_LIST,walletList);
         GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_BANK_ACCOUNT,bankAccount);
         GlobalContext.getGlobalContext().putStateFor(GLOBAL_CURRENT_CURRENCY_PRICES,new CurrentCurrencyPrices());
 
@@ -108,7 +109,7 @@ public class WalletApp extends Application {
     @Override
     public void stop()
     {
-        WalletList walletList = (WalletList) GlobalContext.getGlobalContext().getStateFor(WalletApp.GLOBAL_WALLET_List);
+        WalletList walletList = (WalletList) GlobalContext.getGlobalContext().getStateFor(WalletApp.GLOBAL_WALLET_LIST);
         BankAccount bankAccount = (BankAccount) GlobalContext.getGlobalContext().getStateFor(WalletApp.GLOBAL_BANK_ACCOUNT);
 
 

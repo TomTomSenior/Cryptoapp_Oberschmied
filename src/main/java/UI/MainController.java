@@ -15,7 +15,7 @@ import java.util.Optional;
 public class MainController extends BaseControllerState {
 
     @FXML
-    private  Button btnClose;
+    private Button btnClose;
 
     @FXML
     private ComboBox cmbWalletCurrency;
@@ -36,7 +36,7 @@ public class MainController extends BaseControllerState {
         symbol.setCellValueFactory(new PropertyValueFactory<>("cryptoCurrency"));
 
         TableColumn<Wallet, String> currencyName = new TableColumn<>("CURRENCY NAME");
-       currencyName.setCellValueFactory(new PropertyValueFactory<>("currencyName"));
+        currencyName.setCellValueFactory(new PropertyValueFactory<>("currencyName"));
 
         TableColumn<Wallet, String> name = new TableColumn<>("WALLET NAME");
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -72,7 +72,7 @@ public class MainController extends BaseControllerState {
         }
     }
 
-    public void withdraw(){
+    public void withdraw() {
         TextInputDialog dialog = new TextInputDialog("Insert Amount to withdraw....");
         dialog.setTitle("Withdraw from bankaccount");
         dialog.setHeaderText("How much money do you want to withdraw ?");
@@ -86,24 +86,30 @@ public class MainController extends BaseControllerState {
 
             } catch (NumberFormatException numberFormatException) {
                 WalletApp.showErrorDialog("Please insert a Number !");
-            } catch (InsufficientBalanceException insufficientBalanceException){
+            } catch (InsufficientBalanceException insufficientBalanceException) {
                 WalletApp.showErrorDialog(insufficientBalanceException.getMessage());
             }
         }
     }
-    public void openWallet(){
 
-
+    public void openWallet() {
+        Wallet wallet = this.tableView.getSelectionModel().getSelectedItem();
+        if (wallet != null) {
+            GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_SELECTED_WALLET, wallet);
+            WalletApp.switchScene("wallet.fxml", "com.mycompany.sample.wallet");
+        } else {
+            WalletApp.showErrorDialog("You have to select a Wallet first !");
+        }
     }
+
     public void newWallet() throws InvalidFeeException {
-    Object selectedItem = this.cmbWalletCurrency.getSelectionModel().getSelectedItem();
-    if (selectedItem==null)
-    {
-        WalletApp.showErrorDialog("choose currency");
-        return;
-    }
-    CryptoCurrency selectedCryptoCurrency = CryptoCurrency.valueOf(this.cmbWalletCurrency.getSelectionModel().getSelectedItem().toString());
-    this.getWalletList().addWallet(new Wallet("My" + selectedCryptoCurrency.currencyName + "Wallet",selectedCryptoCurrency,new BigDecimal("1")));
-    tableView.getItems().setAll(this.getWalletList().getWalletsAsObservableList());
+        Object selectedItem = this.cmbWalletCurrency.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            WalletApp.showErrorDialog("choose currency");
+            return;
+        }
+        CryptoCurrency selectedCryptoCurrency = CryptoCurrency.valueOf(this.cmbWalletCurrency.getSelectionModel().getSelectedItem().toString());
+        this.getWalletList().addWallet(new Wallet("My" + selectedCryptoCurrency.currencyName + "Wallet", selectedCryptoCurrency, new BigDecimal("1")));
+        tableView.getItems().setAll(this.getWalletList().getWalletsAsObservableList());
     }
 }
